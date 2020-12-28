@@ -22,3 +22,25 @@ class Cat(Animal):
 def run_twice(animal):
     animal.run()
     animal.run()
+
+
+class Mammal(Animal):
+    pass
+
+
+class Runnable(object):
+    def run(self):
+        print('Running...')
+
+
+# 多重继承
+class Dog2(Mammal, Runnable):
+    pass
+
+# 如果需要“混入”额外的功能，通过多重继承就可以实现，比如，让Dog2除了继承自Bird外，再同时继承Runnable。这种设计通常称之为MixIn。
+class RunnableMixIn(object):
+    def run(self):
+        print('Running...')
+
+class Dog3(Mammal, RunnableMixIn):
+    pass
