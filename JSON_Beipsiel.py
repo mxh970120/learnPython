@@ -10,7 +10,8 @@ jsondata = """{
     {"ddd": "456", "456": 456}
   ]
 }"""
-# 保持顺序一致
+# 如果jsondata为字典，那么不需要load，直接dump
+# 保持顺序一致，将字符串转JSON
 b = json.loads(jsondata, object_pairs_hook=OrderedDict)
 # dumps方法 https://docs.python.org/3/library/json.html#json.dumps
 c = json.dumps(b, sort_keys= False, indent=4, separators=(', ', ': '))
